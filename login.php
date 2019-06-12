@@ -3,6 +3,7 @@
 session_start();
 //Connect to the database
 include("connection.php");
+$errors=NULL;
 //Check user inputs
     //Define error messages
 $missingEmail = '<p><stong>Please enter your email address!</strong></p>';

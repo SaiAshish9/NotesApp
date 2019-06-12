@@ -2,7 +2,7 @@
 //start session and connect
 session_start();
 include ('connection.php');
-
+$errors=NULL;
 //get user_id and new email sent through Ajax
 $user_id = $_SESSION['user_id'];
 $newemail = $_POST['email'];
@@ -40,7 +40,7 @@ if(!$result){
 }else{
     //send email with link to activatenewemail.php with current email, new email and activation code
     $message = "Please click on this link prove that you own this email:\n\n";
-$message .= "http://notesappbyashish.rf.gd/activatenewemail.php?email=" . urlencode($email) . "&newemail=" . urlencode($newemail) . "&key=$activationKey";
+$message .= "https://notesappbysai.000webhostapp.com/activatenewemail.php?email=" . urlencode($email) . "&newemail=" . urlencode($newemail) . "&key=$activationKey";
 if(mail($newemail, 'Email Update for you Online Notes App', $message, 'From:'.'saiashish7777.com')){
        echo "<div class='alert alert-success'>An email has been sent to $newemail. Please click on the link to prove you own that email address.</div>";
 }

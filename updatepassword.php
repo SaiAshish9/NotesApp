@@ -2,7 +2,7 @@
 //start session and connect
 session_start();
 include ('connection.php');
-
+$errors=NULL;
 //define error messages
 $missingCurrentPassword = '<p><strong>Please enter your Current Password!</strong></p>';
 $incorrectCurrentPassword = '<p><strong>The password entered is incorrect!</strong></p>';
@@ -32,19 +32,19 @@ if(empty($_POST["currentpassword"])){
             $errors .= $incorrectCurrentPassword;
         }
     }
-    
+
 }
 
 if(empty($_POST["password"])){
-    $errors .= $missingPassword; 
+    $errors .= $missingPassword;
 }elseif(!(strlen($_POST["password"])>6
          and preg_match('/[A-Z]/',$_POST["password"])
          and preg_match('/[0-9]/',$_POST["password"])
         )
        ){
-    $errors .= $invalidPassword; 
+    $errors .= $invalidPassword;
 }else{
-    $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING); 
+    $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
     if(empty($_POST["password2"])){
         $errors .= $missingPassword2;
     }else{
@@ -58,7 +58,7 @@ if(empty($_POST["password"])){
 //if there is an error print error message
 if($errors){
     $resultMessage = "<div class='alert alert-danger'>$errors</div>";
-    echo $resultMessage;   
+    echo $resultMessage;
 }else{
     $password = mysqli_real_escape_string($link, $password);
     $password = hash('sha256', $password);
@@ -70,7 +70,7 @@ if($errors){
     }else{
         echo "<div class='alert alert-success'>Your password has been updated successfully.</div>";
     }
-    
+
 }
 
 
