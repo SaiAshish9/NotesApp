@@ -61,7 +61,7 @@ if(!$result){
             //Send email with link to resetpassword.php with user id and activation code
 
 $message = "Please click on this link to reset your password:\n\n";
-$message .= "http://notesappbyashish.rf.gd/resetpassword.php?user_id=$user_id&key=$key";
+$message .= "https://notesappbysai.000webhostapp.com/resetpassword.php?user_id=$user_id&key=$key";
 if(mail($email, 'Reset your password', $message, 'From:'.'saiashish7777@gmail.com')){
         //If email sent successfully
                 //print success message
