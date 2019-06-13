@@ -1,7 +1,7 @@
 <?php
-$link = mysqli_connect("localhost", "Sai", "sai", "notes");
-//$link = mysqli_connect("localhost", "id9919674_sai", "shirdisaibaba9999", "id9919674_notes");
-// $link = mysqli_connect("sql103.epizy.com", "epiz_24037097", "shirdisaibaba9999", "epiz_24037097_notes");
+// $link = mysqli_connect("localhost", "Sai", "sai", "notes");
+
+ $link = mysqli_connect("sql103.epizy.com", "epiz_24037097", "shirdisaibaba9999", "epiz_24037097_notes");
 if(mysqli_connect_error()){
     die('ERROR: Unable to connect:' . mysqli_connect_error());
     echo "<script>window.alert('Hi!')</script>";
